@@ -1,4 +1,4 @@
-import { Controller, Get, Req, Query, Headers } from '@nestjs/common';
+import { Controller, Get, Req, Query, Headers, Param } from '@nestjs/common';
 import { Request } from 'express';
 
 @Controller('posts')
@@ -12,5 +12,12 @@ export class PostsController {
         title: 'hello ~'
       }
     ];
+  }
+
+  @Get(':id')
+  show(@Param() params) {
+    return {
+      title: `Post ${params.id}`
+    };
   }
 }
