@@ -8,6 +8,8 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
+  // Specified key was tool long max key length is 767
+  // @Column('varchar', { length: 191, unique: true })
   @Column('varchar', { unique: true })
   name: string;
 
