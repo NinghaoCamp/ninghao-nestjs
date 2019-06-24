@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 // import * as bcrypt from 'bcryptjs';
 import { Exclude } from 'class-transformer';
@@ -26,6 +26,10 @@ export class User {
 
   @OneToMany(type => Post, post => post.user)
   posts: Post[];
+
+  @ManyToMany(type => Post)
+  @JoinTable()
+  voted: Post[];
 
   @BeforeInsert()
   @BeforeUpdate()
