@@ -25,6 +25,6 @@ export class Post {
   @ManyToMany(type => User, user => user.voted)
   liked: User[];
 
-  @ManyToOne(type => Category, categoy => categoy.posts)
+  @ManyToOne(type => Category, category => category.posts)
   category: Category;
 }
