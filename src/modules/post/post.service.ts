@@ -60,7 +60,7 @@ export class PostService {
   }
 
   async index(options: ListOptionsInterface) {
-    const { categories, tags } = options;
+    const { categories, tags, page, limit } = options;
     const queryBuilder = await this.postRepository
       .createQueryBuilder('post');
 
@@ -77,8 +77,8 @@ export class PostService {
     }
 
     queryBuilder
-      .take(3)
-      .skip(3 * (2 - 1));
+      .take(limit)
+      .skip(limit * (page - 1));
 
     const entities = queryBuilder.getMany();
     return entities;
