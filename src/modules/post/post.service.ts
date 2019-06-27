@@ -60,7 +60,7 @@ export class PostService {
   }
 
   async index(options: ListOptionsInterface) {
-    const { categories, tags, page, limit } = options;
+    const { categories, tags, page, limit, sort, order } = options;
     const queryBuilder = await this.postRepository
       .createQueryBuilder('post');
 
@@ -82,7 +82,7 @@ export class PostService {
 
     queryBuilder
       .orderBy({
-        'post.created': 'ASC'
+        [`post.${sort}`]: order
       });
 
     const entities = queryBuilder.getManyAndCount();
