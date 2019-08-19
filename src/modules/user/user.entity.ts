@@ -1,6 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate, OneToMany, ManyToMany, JoinTable } from 'typeorm';
-import * as bcrypt from 'bcrypt';
-// import * as bcrypt from 'bcryptjs';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
+  OneToMany,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
+// import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { Exclude } from 'class-transformer';
 import { Post } from '../post/post.entity';
 import { Comment } from '../comment/comment.entity';
